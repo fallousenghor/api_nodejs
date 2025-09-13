@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const TacheController_1 = require("../controllers/TacheController");
+const tacheController = new TacheController_1.TacheController();
+const router = (0, express_1.Router)();
+router.get("/", tacheController.getTaches.bind(tacheController));
+router.post("/", tacheController.create.bind(tacheController));
+router.get("/:id", tacheController.getTache.bind(tacheController));
+router.put("/:id", tacheController.update.bind(tacheController));
+router.delete("/:id", tacheController.delete.bind(tacheController));
+exports.default = router;
